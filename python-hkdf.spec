@@ -3,16 +3,17 @@
 
 Name:           python-%{pypi_name}
 Version:        %{pypi_version}
-Release:        1
+Release:        2
 Summary:        HMAC-based Extract-and-Expand Key Derivation Function (HKDF)
 
 License:        BSD-2-Clause 
 URL:            https://github.com/casebeer/python-hkdf
 Source0:        https://files.pythonhosted.org/packages/source/%/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Patch01:        remove_test_require_nose.patch
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
-BuildRequires:  python3-nose
+BuildRequires:  python3-nose2
 BuildRequires:  python3-setuptools
 
 %description
@@ -29,7 +30,7 @@ Derivation function
 
 
 %prep
-%autosetup -n %{pypi_name}-%{pypi_version}
+%autosetup -n %{pypi_name}-%{pypi_version} -p1
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
 
@@ -49,5 +50,8 @@ rm -rf %{pypi_name}.egg-info
 %{python3_sitelib}/%{pypi_name}-%{pypi_version}-py%{python3_version}.egg-info
 
 %changelog
+* Tue May 17 2022 lvxiaoqian <xiaoqian@nj.iscas.ac.cn> - 0.0.3-2
+- remove test require: nose
+
 * Thu Jan 27 2022 zhangkea <zhangkea@uniontech.com> - 0.0.3-1
 - Initial package.
