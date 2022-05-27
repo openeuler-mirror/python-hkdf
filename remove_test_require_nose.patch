@@ -1,0 +1,11 @@
+--- a/setup.py	2015-06-16 11:55:16.000000000 +0800
++++ b/setup.py	2022-05-07 17:07:52.303965300 +0800
+@@ -28,8 +28,6 @@
+ 
+ 	py_modules=["hkdf"],
+ 
+-	tests_require=["nose"],
+-	test_suite="nose.collector",
+ 
+ 	long_description=readme,
+ 	classifiers=[
